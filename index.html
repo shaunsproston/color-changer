@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<!--
+Coded by Shaun Sproston
+2nd December 2018
+Concept idea from Youtuber Coding Addict
+All work is my original design.
+-->
+<head lang="en">
+    <meta charset="utf-8">
+    <title>Background Color Button</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .colorBtn{
+            padding: 0.25rem 0.5rem;
+            border: 3px solid #fefefe;
+            border-radius: 7px;
+            color: #fefefe;
+            background: rgba(0,0,0,0.6);
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .colorBtn:hover{
+            background: rgba(0,0,0);
+        }
+    </style>
+</head>
+<body>
+    
+    <button type="button" class="colorBtn">click here to change color</button>
+    
+    <script>
+        
+        var num;
+        
+        const colorBtn = document.querySelector(".colorBtn");
+        
+        const bodyBcg = document.querySelector("body");
+                
+        colorBtn.addEventListener("click", changeColor);
+        
+        function changeColor(){
+            
+                function generateRandNum(){
+                    var value = Math.floor(Math.random()*16);
+                    var numString;
+                        if (value === 10){
+                            value = "A";
+                        } else if (value === 11){
+                            value = "B";
+                        } else if (value === 12){
+                            value = "C";
+                        } else if (value === 13){
+                            value = "D";
+                        } else if (value === 14){
+                            value = "E";
+                        } else if (value === 15){
+                            value = "F";
+                        }
+                    // convert value to string here
+                    numString = value.toString();
+                    return numString;
+                }
+                    var randNum1 = generateRandNum();
+                    var randNum2 = generateRandNum();
+                    var randNum3 = generateRandNum();
+                    var randNum4 = generateRandNum();
+                    var randNum5 = generateRandNum();
+                    var randNum6 = generateRandNum();
+                    var hexColor = (randNum1 + randNum2 + randNum3 + randNum4 + randNum5 + randNum6);
+                    
+                    console.log("TestA: " + hexColor);
+                    colors = "#" + hexColor;
+                    
+                    bodyBcg.style.backgroundColor = colors;
+                return colors;
+        }
+        
+    </script>
+
+</body>
+</html>
